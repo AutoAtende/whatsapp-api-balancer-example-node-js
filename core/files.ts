@@ -5,6 +5,8 @@ export enum DBFiles {
   "config" = "config.json",
   "usedTokens" = "usedTokens.json",
   "notUsedTokens" = "notUsedTokens.json",
+  "result" = "result.csv",
+  "phones" = "phones.csv"
 }
 
 export function checkFiles() {
@@ -14,7 +16,12 @@ export function checkFiles() {
   for (let i = 0; i < keys.length; i++) {
     const key = keys[i];
     const path = DBFiles[key];
-    if (path === DBFiles.config) continue;
+    if (key === "config") continue;
+    if(key === "phones") continue
+    if(key === "result"){
+      fs.writeFileSync(path, "Phone,Status");
+      continue;
+    }
     fs.writeFile(path, "[]", function (err) {
       if (err) throw err;
       console.log(`${key} is created succesfully.`);

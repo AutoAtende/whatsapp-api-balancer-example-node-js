@@ -4,6 +4,8 @@
 /static/*
 /notUsedTokens.json
 /usedTokens.json
+/phones.csv
+/result.csv
 # config.ts
 # Logs
 logs

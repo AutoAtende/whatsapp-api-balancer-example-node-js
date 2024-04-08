@@ -17,7 +17,7 @@ export class Channel {
       },
     };
 
-    const responseRaw = await fetch("https://gate.whapi.cloud/health", options); // send request for check health
+    const responseRaw = await fetch("https://gate.whapi.cloud/health?wakeup=false", options); // send request for check health
     const response = await responseRaw.json();
     if (response.status.text !== "AUTH") throw 401;
   }
